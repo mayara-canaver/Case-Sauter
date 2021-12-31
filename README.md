@@ -1,12 +1,12 @@
 # Case Sauter
 
-Tarefa 01:
+## Tarefa 01:
 
 Nessa tarefa foi pedido para acessar as informações do Aplicativo da Alexa na Play Store e assim obter seus dados criando um novo dataset com separação dos valores de Score.
 
 Foram criados então três arquivos com as avaliações negativas, neutras e positivas e visualizadas e analisadas no pandas_profiling como foi solicitado.
 
-Tarefa 02:
+## Tarefa 02:
 
 Nessa tarefa é solicitado a criação do banco de dados com as informações dos datasets que foi informado acima.
 
@@ -14,7 +14,7 @@ Foram criadas três tabelas então com as avaliações e contendo cinco colunas 
 
 A biblioteca pandas_gbq da Google Cloud BigQuery foi utilizada para inserção desses dados.
 
-Tarefa 03:
+## Tarefa 03:
 
 Foi feita uma pipeline de todos os processos feitos do projeto, desde a parte de credenciamento de dados até a inserção dos dados no banco.
 
