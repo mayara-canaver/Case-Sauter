@@ -8,6 +8,7 @@ pd.options.display.max_columns = None
 
 endereco = str(input("Entre com o endereco do app:\n"))
 
+# REQUISIÇÃO DOS DADOS DO APP ESCOLHIDO PELO USUÁRIO
 app = reviews_all(
     endereco,
     lang="pt",
@@ -29,6 +30,8 @@ app_df[cols] = app_df[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('
 
 app_df = app_df.dropna()
 
+# SEPARAÇÃO DOS ARQUIVOS DE ACORDO COM O SCORE (POSITIVO, NEUTRO E NEGATIVO)
+# RETIRA-SE OS 10 ULTIMOS REGISTROS DE CADA ARQUIVO, PARA EVITAR DADO FALTANTE
 positivo = app_df.loc[app_df["SCORE"] >= 4]
 positivo = positivo[:-10]
 
@@ -48,6 +51,11 @@ credentials = service_account.Credentials.from_service_account_file(
     key_path, scopes=["https://www.googleapis.com/auth/cloud-plataform"]
 )
 
-positivo.to_gbq(project_id="folkloric-rite-336521",
-                destination_table="alexa_data.positivo",
-                if_exists="replace")
+lista_nome_tabela, lista_dataset = ["positivo", "neutro", "negativo"], [positivo, neutro, negativo]
+
+for dataset, nome_tabela in zip(lista_dataset, lista_nome_tabela):
+    dataset.to_gbq(project_id="folkloric-rite-336521",
+                    destination_table="banco." + nome_tabela,
+                    if_exists="replace")
+
+    dataset.to_csv(r"/Desktop/" + nome_tabela + " .csv", index=False)
