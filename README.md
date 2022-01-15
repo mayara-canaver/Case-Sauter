@@ -1,25 +1,39 @@
-# Case Sauter
+# EN/en
 
-## Tarefa 01:
+## Introduction
 
-Nessa tarefa foi pedido para acessar as informações do Aplicativo da Alexa na Play Store e assim obter seus dados criando um novo dataset com separação dos valores de Score.
+The Alexa Brasil main page is scraped on the Play Store, where the objective is to download all the data found and after that perform a treatment and then do the analysis.
 
-Foram criados então três arquivos com as avaliações negativas, neutras e positivas e visualizadas e analisadas no pandas_profiling como foi solicitado.
+The analysis takes place through the Jupyter Notebook using the Pandas Profiling library, which already shows us several statistical observations of the variables.
 
-## Tarefa 02:
+The algorithm also allows for generalization, where you can enter the Play Store address and get the data from whichever app you want, since the fields are generalized.
 
-Nessa tarefa é solicitado a criação do banco de dados com as informações dos datasets que foi informado acima.
+A connection is also made to BigQuery where we can store the data and visualize it when necessary.
 
-Foram criadas três tabelas então com as avaliações e contendo cinco colunas cada uma.
+## Libraries
 
-A biblioteca pandas_gbq da Google Cloud BigQuery foi utilizada para inserção desses dados.
+The following libraries/packages need to be installed before running the project:
 
-## Tarefa 03:
+```bash
+pip install numpy
+pip install google-auth-oauthlib
+pip install pandas
+pip install pandas_gbq
+pip install pandas_profiling
+```
 
-Foi feita uma pipeline de todos os processos feitos do projeto, desde a parte de credenciamento de dados até a inserção dos dados no banco.
 
-Também foi feita a automação do código onded o usuário possa inserir o link do app da Play Store.
+# PT/br
 
+## Introdução
+
+É feito o scraping da página principal da Alexa Brasil na Play Store, onde o objetivo é baixar todos os dados encontrados e após isso realizar um tratamento e então fazer a análise.
+
+A análise ocorre através do Jupyter Notebook utilizando a biblioteca Pandas Profiling, a qual já nos mostra várias observações estatísticas das variáveis.
+
+O algoritmo também permite a generalização, onde você pode inserir o endereço da Play Store e assim obter o dado de qual app quiser, já que os campos são generalizados.
+
+Também é feita uma conexão com o BigQuery onde podemos armazenar os dados e fazer a visualização deles quando necessário.
 
 ## Bibliotecas
 
