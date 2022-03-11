@@ -1,10 +1,16 @@
 import pandas as pd
 import numpy as np
+import os
 
 from google_play_scraper import reviews_all
 from google.oauth2 import service_account
+from dotenv import load_dotenv
 
 pd.options.display.max_columns = None
+
+load_dotenv()
+
+id = os.getenv("ID")
 
 endereco = str(input("Entre com o endereco do app:\n"))
 
@@ -54,8 +60,8 @@ credentials = service_account.Credentials.from_service_account_file(
 lista_nome_tabela, lista_dataset = ["positivo", "neutro", "negativo"], [positivo, neutro, negativo]
 
 for dataset, nome_tabela in zip(lista_dataset, lista_nome_tabela):
-    dataset.to_gbq(project_id="folkloric-rite-336521",
-                    destination_table="banco." + nome_tabela,
-                    if_exists="replace")
+    dataset.to_gbq(project_id=id,
+                   destination_table="banco." + nome_tabela,
+                   if_exists="replace")
 
     dataset.to_csv(r"/Desktop/" + nome_tabela + " .csv", index=False)
